@@ -31,6 +31,21 @@ def extract_courses_from_text(text):
     return pattern.findall(text)
 
 
+def analyze_courses(texts):
+    distinct_course_counts = {}
+    for file, text_list in texts.items():
+        all_courses = []
+        for text in text_list:
+            all_courses.extend(extract_courses_from_text(text))
+
+        #converting to set to get distinct courses and then back to list
+
+        distinct_courses = list(set(all_courses))
+        distinct_course_counts[file] = len(distinct_courses)
+    return distinct_course_counts
+
+
+
 
 
 
