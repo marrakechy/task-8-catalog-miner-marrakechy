@@ -27,6 +27,10 @@ def extract_pdf_texts(folder_path):
 pattern = re.compile(r'\b[A-Za-z]{2,3}-\d{3}\b')
 
 
+def extract_courses_from_text(text):
+    return pattern.findall(text)
+
+
 
 
 
