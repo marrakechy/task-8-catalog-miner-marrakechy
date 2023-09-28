@@ -45,7 +45,23 @@ def analyze_courses(texts):
     return distinct_course_counts
 
 
+def main():
+    folder_path = "catalogs"
+    texts = extract_pdf_texts(folder_path)
+    counts = analyze_courses(texts)
 
+    #sort pdfs by the number of distinct courses they offer
+    sorted_programs = sorted(counts.items(), key=lambda x: x[1], reverse=True)
+
+    for program, count in sorted_programs:
+        print(f"{program} offers {count} distinct courses.")
+
+    print(
+        f"\nThe program {sorted_programs[0][0]} offers the most distinct courses with {sorted_programs[0][1]} courses.")
+
+
+if __name__ == "__main__":
+    main()
 
 
 
