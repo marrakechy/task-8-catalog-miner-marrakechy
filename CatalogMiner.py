@@ -5,7 +5,6 @@ import re
 
 def extract_pdf_texts(folder_path):
     texts = {}
-
     #get all PDF files in the specified folder
     files = [f for f in os.listdir(folder_path) if f.endswith('.pdf')]
 
